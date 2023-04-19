@@ -1,0 +1,31 @@
+{
+  "name": "finconsult_auto",
+  "version": "1.0.0",
+  "description": "e2e testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Maksym Tomarovshchenko",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariyaQA/finconsult_auto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MariyaQA/finconsult_auto/issues"
+  },
+  "homepage": "https://github.com/MariyaQA/finconsult_auto#readme",
+  "devDependencies": {
+    "cypress": "^12.10.0",
+    "cypress-iframe": "^1.0.1",
+    "cypress-xpath": "^2.0.1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-match-screenshot": "^1.1.0",
+    "faker": "^6.6.6"
+  }
+}
