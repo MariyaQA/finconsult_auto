@@ -1,5 +1,8 @@
 import {BASE_URL} from "../data/links";
 import localization from "../data/localization";
+import {faker} from "@faker-js/faker";
+import LocalizationActions from "./page_objects/LocalizationActions";
+import AccountCreationPage from "./locators/AccountCreationPage";
 
 
 
@@ -10,9 +13,16 @@ class  CommonActivities {
     static cssDropdown_LanguagePL = "react-select-2-option-1";
     static cssDropdown_LanguageEN = "react-select-2-option-2";
     static cssDropdown_LanguageRU = "react-select-2-option-3";
+    static cssTitle = "h1";
+    static cssLabel_Type = ".label-itself";
+    static cssBtn_Next = ".main-button";
 
     openWebsite(){
         cy.visit(BASE_URL);
+    };
+
+    clickNextButton(){
+        cy.get(CommonActivities.cssBtn_Next).click();
     };
 
     getCurrentLanguage() {
@@ -21,9 +31,31 @@ class  CommonActivities {
 
     selectEnglishLanguage(){
         cy.get(CommonActivities.cssInput_Language).click();
-        cy.get(CommonActivities.cssInput_Language).type('english{enter}');
+        cy.get(CommonActivities.cssInput_Language).type(localization.English.lang);
         cy.reload();
     }
+
+    selectRussianLanguage(){
+        cy.get(CommonActivities.cssInput_Language).click();
+        cy.get(CommonActivities.cssInput_Language).type(localization.Русский.lang);
+        cy.reload();
+    }
+
+    selectUkrainianLanguage(){
+        cy.get(CommonActivities.cssInput_Language).click();
+        cy.get(CommonActivities.cssInput_Language).type(localization.Українська.lang);
+        cy.reload();
+    }
+
+    selectPolishLanguage(){
+        cy.get(CommonActivities.cssInput_Language).click();
+        cy.get(CommonActivities.cssInput_Language).type(localization.Polski.lang);
+        cy.reload();
+    }
+
+
+
+
 
 
 }

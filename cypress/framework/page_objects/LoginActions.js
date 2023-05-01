@@ -1,5 +1,6 @@
 import LoginPage from "../locators/LoginPage";
 import LocalizationActions from "./LocalizationActions";
+import CommonActivities from "../CommonActivities";
 
 class LoginActions {
     clickSignUpButton(){
@@ -9,7 +10,7 @@ class LoginActions {
     checkLanguageAndCorrectTitleOnLoginPage() {
         return LocalizationActions.getCurrentLanguage().then((language) => {
             return LocalizationActions.getTitleTextForLoginPage(language).then((expectedTitle) => {
-                cy.get("h1").invoke("text").should("equal", expectedTitle);
+                cy.get(CommonActivities.cssTitle).invoke("text").should("equal", expectedTitle);
             });
         });
     }
