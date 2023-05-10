@@ -3,13 +3,14 @@ import LocalizationActions from "../page_objects/LocalizationActions";
 import CommonActivities from "../CommonActivities";
 import userInfo from "../../data/userInfo";
 import {faker} from "@faker-js/faker";
+import localization from "../../data/localization";
 
 class AccountCreationActions {
 
     localizationTextForEmailChecking(){
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getErrorTextForEmailFieldOnSignUpPage(language).then((expectedType) => {
-                cy.get(AccountCreationPage.cssLabel_Error).eq(0).invoke("text").should("eq", expectedType);
+                cy.get(CommonActivities.cssLabel_Error).eq(0).invoke("text").should("eq", expectedType);
             });
         });
     };
@@ -21,7 +22,7 @@ class AccountCreationActions {
     checkNameTypeForSignUpPage(){
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getNameTypeTextForSignUpPage(language).then((expectedType) => {
-                cy.get(AccountCreationPage.cssLabel_NameType).eq(0).invoke("text").should("eq", expectedType);
+                cy.get(CommonActivities.cssLabel_NameType).eq(0).invoke("text").should("eq", expectedType);
             });
         });
     };
@@ -29,7 +30,7 @@ class AccountCreationActions {
     checkPasswordNameTypeForSignUpPage(){
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getPasswordNameTypeTextForSignUpPage(language).then((expectedType) => {
-                cy.get(AccountCreationPage.cssLabel_NameType).eq(2).invoke("text").should("eq", expectedType);
+                cy.get(CommonActivities.cssLabel_NameType).eq(2).invoke("text").should("eq", expectedType);
             });
         });
     };
@@ -37,7 +38,7 @@ class AccountCreationActions {
     checkPasswordConfirmNameTypeForSignUpPage(){
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getPasswordCheckingNameTypeTextForSignUpPage(language).then((expectedType) => {
-                cy.get(AccountCreationPage.cssLabel_NameType).eq(3).invoke("text").should("eq", expectedType);
+                cy.get(CommonActivities.cssLabel_NameType).eq(3).invoke("text").should("eq", expectedType);
             });
         });
     };
@@ -45,7 +46,7 @@ class AccountCreationActions {
     checkPasswordErrorForSignUpPage(){
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getPasswordErrorFieldOnSignUpPage(language).then((expectedType) => {
-                cy.get(AccountCreationPage.cssLabel_Error)
+                cy.get(CommonActivities.cssLabel_Error)
                     .eq(0)
                     .invoke("text")
                     .should("eq", expectedType);
@@ -56,7 +57,7 @@ class AccountCreationActions {
     checkPasswordConfirmErrorForSignUpPage(){
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getPasswordCheckingErrorFieldOnSignUpPage(language).then((expectedType) => {
-                cy.get(AccountCreationPage.cssLabel_Error)
+                cy.get(CommonActivities.cssLabel_Error)
                     .eq(0)
                     .invoke("text")
                     .should("eq", expectedType);
@@ -67,7 +68,7 @@ class AccountCreationActions {
     checkNameErrorForSignUpPage(){
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getNameError1TextForSignUpPage(language).then((expectedType) => {
-                cy.get(AccountCreationPage.cssLabel_Error)
+                cy.get(CommonActivities.cssLabel_Error)
                     .eq(0)
                     .invoke("text")
                     .should("eq", expectedType);
@@ -93,38 +94,38 @@ class AccountCreationActions {
     }
 
     enterFirstIncorrectEmailAndCheckError(){
-        cy.get(AccountCreationPage.cssField_Email).type(userInfo.email.incorrect1);
+        cy.get(CommonActivities.cssField_Email).type(userInfo.email.incorrect1);
         cy.wait(1000);
         this.localizationTextForEmailChecking();
     };
 
     enterSecondIncorrectEmailAndCheckError(){
-        cy.get(AccountCreationPage.cssField_Email).clear();
-        cy.get(AccountCreationPage.cssField_Email).type(userInfo.email.incorrect2);
+        cy.get(CommonActivities.cssField_Email).clear();
+        cy.get(CommonActivities.cssField_Email).type(userInfo.email.incorrect2);
         cy.wait(1000);
         this.localizationTextForEmailChecking();
     };
 
     enterThirdIncorrectEmailAndCheckError(){
-        cy.get(AccountCreationPage.cssField_Email).clear();
-        cy.get(AccountCreationPage.cssField_Email).type(userInfo.email.incorrect3);
+        cy.get(CommonActivities.cssField_Email).clear();
+        cy.get(CommonActivities.cssField_Email).type(userInfo.email.incorrect3);
         cy.wait(1000);
         this.localizationTextForEmailChecking();
     };
 
     enterFourthIncorrectEmailAndCheckError(){
-        cy.get(AccountCreationPage.cssField_Email).clear();
-        cy.get(AccountCreationPage.cssField_Email).type(userInfo.email.incorrect4);
+        cy.get(CommonActivities.cssField_Email).clear();
+        cy.get(CommonActivities.cssField_Email).type(userInfo.email.incorrect4);
         cy.wait(1000);
         this.localizationTextForEmailChecking();
     };
 
     enterIncorrectPasswordAndCheckError(){
-        cy.get(AccountCreationPage.cssField_Password).type(userInfo.password.incorrect1);
+        cy.get(CommonActivities.cssField_Password).type(userInfo.password.incorrect1);
         cy.wait(1000);
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getPwdErrorFieldOnSignUpPage(language).then((expectedType) => {
-                cy.get(AccountCreationPage.cssLabel_Error)
+                cy.get(CommonActivities.cssLabel_Error)
                     .eq(0)
                     .invoke("text")
                     .should("eq", expectedType);
@@ -137,7 +138,7 @@ class AccountCreationActions {
         cy.wait(1000);
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getPasswordCheckingSecondErrorFieldOnSignUpPage(language).then((expectedType) => {
-                cy.get(AccountCreationPage.cssLabel_Error)
+                cy.get(CommonActivities.cssLabel_Error)
                     .eq(0)
                     .invoke("text")
                     .should("eq", expectedType);
@@ -146,8 +147,8 @@ class AccountCreationActions {
     };
 
     enterCorrectPasswordToTheField(){
-        cy.get(AccountCreationPage.cssField_Password).clear();
-        cy.get(AccountCreationPage.cssField_Password).type(userInfo.password.correct);
+        cy.get(CommonActivities.cssField_Password).clear();
+        cy.get(CommonActivities.cssField_Password).type(userInfo.password.correct);
     };
 
     enterCorrectPasswordConfirmToTheField(){
@@ -175,12 +176,29 @@ class AccountCreationActions {
 
     enterCorrectRandomEmailForRegistration(){
         const email = this.generateEmail(cy);
-        cy.get(AccountCreationPage.cssField_Email).clear();
-        cy.get(AccountCreationPage.cssField_Email).type(email);
+        cy.get(CommonActivities.cssField_Email).clear();
+        cy.get(CommonActivities.cssField_Email).type(email);
         cy.wrap(email).as('registeredEmail');
     };
 
+    clickEyeButton(){
+        cy.get(AccountCreationPage.cssButton_Eye).click();
+    };
 
+    checkConfidentialityModalWindowAndTitle(){
+        cy.get(AccountCreationPage.cssModal_Confidentiality).click();
+        cy.get(AccountCreationPage.cssTitle_TOS).should("contain.text", localization.Русский.tosTitle);
+        cy.get(AccountCreationPage.cssButton_Close).click();
+    };
+
+    checkConfirmTitleForSignUpPage(){
+        cy.wait(2000);
+        LocalizationActions.getCurrentLanguage().then((language) => {
+            LocalizationActions.getTitleOnConfirmEmailPage(language).then((expectedType) => {
+                cy.get(AccountCreationPage.cssTitle_Auth).invoke("text").should("eq", expectedType);
+            });
+        });
+    };
 
 
 }

@@ -14,8 +14,11 @@ class  CommonActivities {
     static cssDropdown_LanguageEN = "react-select-2-option-2";
     static cssDropdown_LanguageRU = "react-select-2-option-3";
     static cssTitle = "h1";
-    static cssLabel_Type = ".label-itself";
+    static cssLabel_NameType = ".label-itself";
+    static cssLabel_Error = ".error-msg";
     static cssBtn_Next = ".main-button";
+    static cssField_Email = "[name='email']";
+    static cssField_Password = "[name='password']";
 
     openWebsite(){
         cy.visit(BASE_URL);

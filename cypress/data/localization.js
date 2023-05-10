@@ -15,7 +15,10 @@ const localization = {
         confirmPwdError1: ' - пароли не совпадают',
         confidentialityError: 'Вам необходимо согласиться с политикой конфиденциальности',
         nameError: ' - можно использовать только буквы',
-        emailError1: ' - не валидный емейл адрес'
+        emailError1: ' - не валидный емейл адрес',
+        tosTitle: 'РЕГЛАМЕНТ  ВЕБ-ПЛАТФОРМЫ',
+        confirmEmail: 'Подтвердите email',
+        incorrectPasswordError1: 'Введен неверный пароль, пришлите пароль на email.'
     },
     'English': {
         lang: 'english{enter}',
@@ -33,7 +36,8 @@ const localization = {
         confirmPwdError1: ' - passwords do not match',
         confidentialityError: 'you need to agree to the privacy policy',
         nameError: ' - only letters can be used',
-        emailError1: ' - not a valid email address'
+        emailError1: ' - not a valid email address',
+        confirmEmail: 'Confirm email'
     },
     'Polski': {
         lang: 'polski{enter}',
@@ -51,7 +55,8 @@ const localization = {
         confirmPwdError1: ' - hasło nie pasuje',
         confidentialityError: 'Musisz wyrazić zgodę na politykę prywatności oraz regulamin Serwisu',
         nameError: ' - można używać tylko liter',
-        emailError1: ' - nie ważny adres e-mail'
+        emailError1: ' - nie ważny adres e-mail',
+        confirmEmail: 'Potwierdź adres mail'
     },
     'Українська': {
         lang: 'українська{enter}',
@@ -69,7 +74,8 @@ const localization = {
         confirmPwdError1: ' - паролі не співпадать',
         confidentialityError: 'Вам необхідно погодитись з політикою конфіденційності',
         nameError: ' - дозволено використовувати тільки букви',
-        emailError1: ' - не валідна email адреса'
+        emailError1: ' - не валідна email адреса',
+        confirmEmail: 'Підтвердьте email адресу'
     },
 };
 

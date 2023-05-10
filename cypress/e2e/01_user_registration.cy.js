@@ -16,7 +16,6 @@ describe ("Register new user to the system", ()=> {
         perform.loginActions.checkLanguageAndCorrectTitleOnLoginPage();
         perform.loginActions.clickSignUpButton();
         general.clickNextButton();
-        perform.accountCreationActions.checkTOSErrorForSignUpPage();
         perform.accountCreationActions.enterIncorrectName();
         general.clickNextButton();
         perform.accountCreationActions.checkNameTypeForSignUpPage();
@@ -35,7 +34,12 @@ describe ("Register new user to the system", ()=> {
         perform.accountCreationActions.checkPasswordConfirmErrorForSignUpPage();
         perform.accountCreationActions.enterIncorrectPasswordCheckingAndCheckError();
         perform.accountCreationActions.enterCorrectPasswordConfirmToTheField();
-
+        perform.accountCreationActions.clickEyeButton();
+        general.clickNextButton();
+        perform.accountCreationActions.checkTOSErrorForSignUpPage();
+        perform.accountCreationActions.checkConfidentialityModalWindowAndTitle();
+        general.clickNextButton();
+        perform.accountCreationActions.checkConfirmTitleForSignUpPage();
 
     });
 });
