@@ -3,3 +3,5 @@ export const ONBOARDING1_PATH = "/onboarding/1";
 export const ONBOARDING3_PATH = "/onboarding/3";
 export const ONBOARDING4_PATH = "/onboarding/4";
 export const SIGNUP_PATH = "/signup";
+export const LOGIN_PATH = "/login";
+export const HOME_PATH = "/home";

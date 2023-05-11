@@ -18,7 +18,8 @@ const localization = {
         emailError1: ' - не валидный емейл адрес',
         tosTitle: 'РЕГЛАМЕНТ  ВЕБ-ПЛАТФОРМЫ',
         confirmEmail: 'Подтвердите email',
-        incorrectPasswordError1: 'Введен неверный пароль, пришлите пароль на email.'
+        incorrectPasswordError1: 'Введен неверный пароль, пришлите пароль на email.',
+        notRegisteredEmailError: 'Такого пользователя нет, зарегистрируйтесь.'
     },
     'English': {
         lang: 'english{enter}',

@@ -180,22 +180,23 @@ class LocalizationActions extends  CommonActivities{
     };
 
     getIncorrectPasswordErrorOnLoginPage(language){
-        const typeSelector =  LoginPage.cssPopup_Error;
+        const typeSelector =  LoginPage.cssPopup_PassError;
         return cy.get(typeSelector)
             .invoke('text')
             .then((text) => {
                 const localizedTitle = localization[language].incorrectPasswordError1;
                 cy.wrap(text.trim()).should('equal', localizedTitle);
             });
-        //
-        // const errorSelector = LoginPage.cssPopup_Error;
-        // const localizedTitle = localization[language].incorrectPasswordError1;
-        //
-        // return cy.get(errorSelector)
-        //     .invoke('text')
-        //     .then((text) => {
-        //         expect(text.trim()).to.equal(localizedTitle.trim());
-        //     });
+    };
+
+    getErrorForEmailOnLoginPage(language){
+        const typeSelector =  LoginPage.cssPopup_EmailError;
+        return cy.get(typeSelector)
+            .invoke('text')
+            .then((text) => {
+                const localizedTitle = localization[language].notRegisteredEmailError;
+                cy.wrap(text.trim()).should('equal', localizedTitle);
+            });
     };
 
     getErrorTextForEmailFieldOnLoginPage(language){

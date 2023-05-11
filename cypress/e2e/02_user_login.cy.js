@@ -23,7 +23,16 @@ describe ("Login new user to the system after registration", ()=> {
         perform.loginActions.addIncorrectPassword();
         general.clickNextButton();
         perform.loginActions.checkErrorThatPasswordIncorrect();
-
-
+        perform.loginActions.addCorrectPasswordAndNotRegisteredEmail();
+        general.clickNextButton();
+        perform.loginActions.checkErrorThatUserIsNotRegistered();
+        perform.loginActions.clickRegistrationLinkToOpenSignUpPage();
+        perform.accountCreationActions.checkRegistrationPageIsOpened();
+        perform.accountCreationActions.clickLoginButton();
+        perform.loginActions.checkLoginPageIsOpened();
+        perform.loginActions.addCorrectEmailToInput();
+        perform.loginActions.addCorrectPassword();
+        perform.loginActions.clickLoginButton();
+        perform.loginActions.checkHomePageIsOpened();
     });
 });

@@ -4,8 +4,13 @@ import CommonActivities from "../CommonActivities";
 import userInfo from "../../data/userInfo";
 import {faker} from "@faker-js/faker";
 import localization from "../../data/localization";
+import {SIGNUP_PATH} from "../../data/links";
 
 class AccountCreationActions {
+    checkRegistrationPageIsOpened(){
+        return cy.location().its('pathname')
+            .should('eq', SIGNUP_PATH);
+    };
 
     localizationTextForEmailChecking(){
         LocalizationActions.getCurrentLanguage().then((language) => {

@@ -2,6 +2,7 @@ import LoginPage from "../locators/LoginPage";
 import LocalizationActions from "./LocalizationActions";
 import CommonActivities from "../CommonActivities";
 import userInfo from "../../data/userInfo";
+import {BASE_URL, HOME_PATH, LOGIN_PATH, SIGNUP_PATH} from "../../data/links";
 
 class LoginActions {
     clickSignUpButton(){
@@ -78,14 +79,50 @@ class LoginActions {
         cy.get(CommonActivities.cssField_Password).type(userInfo.password.incorrect1);
     };
 
+    addCorrectPassword(){
+        cy.get(CommonActivities.cssField_Password).type(userInfo.password.correct);
+    };
+
+    clickLoginButton(){
+      cy.get(LoginPage.cssBtn_Login).click();
+    };
+
     checkErrorThatPasswordIncorrect(){
         LocalizationActions.getCurrentLanguage().then((language) => {
             LocalizationActions.getIncorrectPasswordErrorOnLoginPage(language).then((expectedType) => {
-                cy.get(LoginPage.cssPopup_Error).invoke("text").should("eq", expectedType);
+                cy.get(LoginPage.cssPopup_PassError).invoke("text").should("eq", expectedType);
             });
         });
     };
 
+    addCorrectPasswordAndNotRegisteredEmail(){
+        cy.get(CommonActivities.cssField_Password).clear();
+        cy.get(CommonActivities.cssField_Password).type(userInfo.password.correct);
+        cy.get(CommonActivities.cssField_Email).clear();
+        cy.get(CommonActivities.cssField_Email).type(userInfo.email.incorrect5);
+    };
+
+    checkErrorThatUserIsNotRegistered(){
+        LocalizationActions.getCurrentLanguage().then((language) => {
+            LocalizationActions.getErrorForEmailOnLoginPage(language).then((expectedType) => {
+                cy.get(LoginPage.cssPopup_EmailError).invoke("text").should("eq", expectedType);
+            });
+        });
+    };
+
+    clickRegistrationLinkToOpenSignUpPage(){
+      cy.get(LoginPage.cssPopup_Link).click();
+    };
+
+    checkLoginPageIsOpened(){
+        return cy.location().its('pathname')
+            .should('eq', LOGIN_PATH);
+    };
+
+    checkHomePageIsOpened(){
+        return cy.location().its('pathname')
+            .should('eq', HOME_PATH);
+    };
 
 
 }

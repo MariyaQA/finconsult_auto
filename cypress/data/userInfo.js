@@ -8,6 +8,7 @@ module.exports = {
         incorrect2: 'test@gmailcom',
         incorrect3: 'testgmail.com',
         incorrect4: 'test@.com',
+        incorrect5: 'test.user001@gmail.com'
     },
     password: {
         incorrect1: '123',
